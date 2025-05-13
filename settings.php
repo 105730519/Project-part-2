@@ -3,6 +3,6 @@
 $host = "localhost";         
 $user = "root";              
 $pwd = "";                   
-$sql_db = "nhomnhom_db";
+$sql_db = "jobs_list.db";
      
 ?>
