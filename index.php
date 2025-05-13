@@ -1,5 +1,16 @@
-<?php include("header.inc"); ?>
-<?php include("menu.inc"); ?>
+//include menu, header and settings to the web 
+<?php 
+    include("header.inc"); 
+    include("menu.inc"); 
+    include("settings.php");
+
+    $conn = mysqli_connect($host, $user, $pwd, $database);
+    
+    if ($conn) {
+        die("Connection failed: " . mysqli_connect_error());
+
+    } 
+?>
 
 <div id="biggest-image">
     <div class="wrapper">
