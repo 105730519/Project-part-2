@@ -1,10 +1,9 @@
 <?php
-include("includes/header.inc"); 
-include("includes/menu.inc"); 
+include("header.inc"); 
+include("menu.inc"); 
 require("settings.php");
 
 $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-
 if (!$conn) {
     echo "<p>Database connection failed: " . mysqli_connect_error() . "</p>";
 } else {

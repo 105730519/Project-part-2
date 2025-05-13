@@ -1,15 +1,9 @@
 <?php
-include("includes/header.inc"); 
-include("includes/menu.inc"); 
+include("header.inc"); 
+include("menu.inc"); 
 ?>
 
-<body class="about">
-    <header class="company-name">
-        <h1>Nhom Nhom<span class="color">.</span></h1>
-        <?php include('menu.inc'); ?>
-    </header>
-    
-    <h1 class="seng">About Our Group</h1>
+        <h1 class="seng">About Our Group</h1>
 
     <h1>Group Information</h1>
     <table border="1">
