@@ -1,5 +1,7 @@
-<?php include 'includes/header.inc'; ?>
-<?php include 'includes/menu.inc'; ?>
+<?php
+include("includes/header.inc"); 
+include("includes/menu.inc"); 
+?>
 
 <main>
     <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post" class="form">
@@ -74,4 +76,4 @@
     </form>
 </main>
 
-<?php include 'includes/footer.inc'; ?>
+<?php include("footer.inc"); ?>

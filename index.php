@@ -1,6 +1,25 @@
-<?php include("header.inc"); ?>
-<?php include("menu.inc"); ?>
+<?php
+include("includes/header.inc"); 
+include("includes/menu.inc"); 
+require("settings.php");
 
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+
+if (!$conn) {
+    echo "<p>Database connection failed: " . mysqli_connect_error() . "</p>";
+} else {
+    echo "<p>Successfully connected to the database!</p>";
+}
+?>
+
+<main>
+    <h1>Welcome to Nhom Nhom</h1>
+    <p>Your trusted team for tech innovation and career opportunities.</p>
+</main>
+
+<?php
+include("includes/footer.inc"); 
+?>
 <div id="biggest-image">
     <div class="wrapper">
         <h1><strong>Welcome to Nhom Nhom</strong></h1>

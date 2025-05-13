@@ -1,5 +1,7 @@
-<?php include 'includes/header.inc'; ?>
-<?php include 'includes/menu.inc'; ?>
+<?php
+include("includes/header.inc"); 
+include("includes/menu.inc"); 
+?>
 
 <main>
     <section class="jobs-header">
@@ -82,4 +84,4 @@
     </aside>
 </main>
 
-<?php include 'includes/footer.inc'; ?>
+<?php include("footer.inc"); ?>

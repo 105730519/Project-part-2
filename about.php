@@ -1,4 +1,7 @@
-<?php include('header.inc'); ?>
+<?php
+include("includes/header.inc"); 
+include("includes/menu.inc"); 
+?>
 
 <body class="about">
     <header class="company-name">
