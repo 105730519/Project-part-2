@@ -1,0 +1,779 @@
+/* Author: Tran Minh Thien Phan 
+   Purpose: CSS for index page -
+*/
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body {
+    background: #fff;
+    color: #666;
+    font: 15px/1.5 "Istok Web", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1.5em;
+}
+
+h1 {
+    font-family: 'Crete Round', serif;
+    font-size: 42px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 300;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+h3,
+h4,
+h5 {
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 28px;
+    text-align: center;
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h5 {
+    font-size: 14px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #007acc;
+}
+
+.company-name {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* header stuff */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 .color {
+    color: #007acc;
+}
+
+nav ul {
+    list-style: none;
+    /* Removes default bullet points from the navigation list */
+    display: flex;
+    /* Uses Flexbox to arrange navigation items horizontally */
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 14px 25px;
+    /* improved padding for tap targets */
+    /*Touch targets should be at least 44x44px on mobile.(Recommended by AI*/
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hero */
+#biggest-image {
+    height: 500px;
+    background: #e0e0e0 url('https://baothanhthienn.github.io/Project-Part-1/images/minimal-city.jpg') no-repeat center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+#biggest-image h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+#biggest-image h2 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+.btn {
+    display: inline-block;
+    /* Makes the button behave like an inline element with block-level properties */
+    background: #333;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 4px;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #007acc;
+    /* Changes the background color of the button to blue on mouse hover */
+}
+
+/* Features */
+#features {
+    padding: 60px 0;
+}
+
+#features ul {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows feature list items to wrap to the next line on smaller screens */
+    justify-content: space-between;
+    /* Distributes space evenly between feature list items */
+    list-style: none;
+    padding: 0;
+}
+
+#features ul li {
+    flex: 1 1 30%;
+    margin-bottom: 40px;
+    text-align: center;
+    padding-top: 130px;
+    background-size: auto 100px;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+
+.innovative-tech {
+    background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-1.png');
+}
+
+.global-reach {
+    background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-2.png');
+}
+
+.flexibility {
+    background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-3.png');
+}
+
+/* Main Content */
+#primary-content,
+#secondary-content,
+#cta {
+    padding: 60px 0;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+#primary-content article img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+#secondary-content .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+#secondary-content article {
+    flex: 1 1 45%;
+    min-height: 250px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.overlay {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 20px;
+    position: relative;
+    top: 0;
+    height: 100%;
+}
+
+/* Footer */
+footer {
+    background: #f0f0f0;
+    padding: 30px 0;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+    border-top: 1px solid #ddd;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0;
+
+}
+
+#footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+#footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+#footer-links li {
+    margin-bottom: 6px;
+}
+
+#footer-links a {
+    color: #333;
+}
+
+#footer-links a:hover {
+    color: #000;
+}
+
+/*Responsive design on mobile design*/
+@media (min-width: 320px) and (max-width: 480px) {
+    header {
+        display: flex;
+        flex-direction: row;
+        /* Ensure items are in a row */
+        align-items: center;
+        /* Vertically align items */
+        height: auto;
+        /* Adjust height based on content */
+        box-sizing: border-box;
+        width: auto;
+        padding: 0 10%;
+    }
+}
+
+/* Responsive design on larger mobile devices */
+@media (min-width: 481px) and (max-width: 640px) {
+
+    /* GenAI assistance for this ideas*/
+    header {
+        display: flex;
+        flex-direction: row;
+        /* Ensure items are in a row */
+        align-items: center;
+        /* Vertically align items */
+        height: auto;
+        /* Adjust height based on content */
+        box-sizing: border-box;
+        width: auto;
+        padding: 0 10%;
+    }
+}
+
+/*responsive design on table*/
+@media (min-width: 641px) and (max-width: 1024px) {
+    header {
+        width: auto;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+/*Recommended by AI to improve the responsiveness of the design*/
+@media (max-width: 768px) {
+    #features ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #secondary-content article {
+        flex: 1 1 100%;
+    }
+}
+
+
+
+
+/* ================== JOB PAGE STYLES (from job.css) ================== */
+body.jobs {
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    font-family: "Istok Web", Arial, sans-serif;
+}
+
+header.jobs-header {
+    background-color: #ffffff;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    height: 120px;
+}
+
+header.jobs-header h1 {
+    float: left;
+    text-align: center;
+    color: black;
+    padding: 10px;
+    font-size: 55px;
+    margin-top: 32px;
+}
+
+header.jobs-header nav {
+    float: right;
+}
+
+.h2 {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 40px;
+    box-sizing: border-box;
+}
+
+nav.jobs-nav ul {
+    list-style: none;
+    text-align: left;
+    padding: 50px;
+}
+
+nav.jobs-nav ul li {
+    display: inline;
+    margin: 0 10px;
+    float: right;
+}
+
+nav.jobs-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+nav.jobs-nav ul li a:hover {
+    color: #007bff;
+}
+
+/* Styling the main content */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+.jobs-h2 {
+    text-align: center;
+    font-size: 28px;
+    color: black;
+    margin-bottom: 40px;
+}
+.location {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f4f4f4; 
+    border-radius: 8px;
+}
+
+.location a {
+    display: inline-block;
+    margin-bottom: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+.location a:hover {
+    text-decoration: underline;
+}
+/*Recommended by AI*/
+.map-embed {
+    width: 100%;
+    height: 300px;
+    border: 0;
+    border-radius: 6px;
+}
+/* Styling the job description parts */
+div.div-current-openings {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+div.div-current-openings h3 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+div.div-current-openings p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+div.div-current-openings h4 {
+    font-size: 20px;
+    color: black;
+    margin-top: 20px;
+    font-weight: bolder;
+}
+
+div.div-current-openings ul {
+    margin-left: 20px;
+    padding-left: 0;
+}
+
+div.div-current-openings ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+div.div-current-openings ul li:before {
+    color: #007bff;
+    font-size: 18px;
+    margin-right: 8px;
+}
+.faq-section {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    max-width: 100%;
+}
+
+.faq-section h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.faq-section ul {
+    list-style: none; /* Remove bullet points */
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+.faq-section li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.faq-section li strong {
+    display: block;
+    color: #000;
+    font-weight: bold;
+}
+
+
+/* ================== APPLY PAGE STYLES (from apply.css) ================== */
+body.apply {
+    font-family: "Istok Web", Arial, sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+form.form {
+    background: white;
+    background-attachment: fixed;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 100px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.apply-title {
+    font-weight: 500;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.apply-title h1 {
+    font-size: 34px;
+}
+
+.apply-title p {
+    font-size: 14px;
+    text-align: center;
+}
+
+
+.Gender {
+    border: none;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+.checkbox-group {
+    margin-bottom: 15px;
+}
+
+.checkbox-group label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#Other textarea {
+    font-family: "Istok Web", Arial, sans-serif;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.required {
+    color: red;
+}
+
+/* ================== ABOUT PAGE STYLES (from about.css) ================== */
+/* Basic styling for the body */
+body.about {
+    font-family: "Istok Web", Arial, sans-serif;
+    /* Sets the font family */
+    line-height: 1.6;
+    /* Makes the text more readable with spaced lines */
+    margin: 0;
+    /* Removes the default margin around the page */
+    padding: 0 20px;
+    /* Adds space on the left and right sides of the page */
+    background-color: #f4f4f4;
+    /* Sets a light grey background color */
+}
+
+/* Center-aligns all headers (h1, h2, h3) */
+h1,
+h2,
+h3 {
+    text-align: center;
+    /* Centers the text horizontally */
+    margin-top: 30px;
+    /* Adds space above the header */
+    color: #222;
+    /* Sets the text color to a dark shade */
+}
+
+/* Styling for the table */
+table {
+    margin: 20px auto;
+    /* Centers the table horizontally and adds space above and below */
+    border-collapse: collapse;
+    /* Ensures table borders are merged together */
+    width: 70%;
+    /* Sets the table to take up 70% of the page width */
+}
+
+/* Styling for the table caption (if present) */
+table caption {
+    font-weight: bold;
+    /* Makes the caption text bold */
+    margin-bottom: 10px;
+    /* Adds space below the caption */
+}
+
+/* Styling for table headers and data cells */
+table th,
+table td {
+    border: 1px solid #333;
+    /* Adds a solid border around the cells */
+    padding: 10px;
+    /* Adds space inside each cell */
+    background-color: #e6f2ff;
+    /* Gives a light blue background to each cell */
+    text-align: center;
+    /* Centers the content inside the cells */
+}
+
+/* Hover effect for table headers and cells */
+table th:hover, table td:hover {
+    background-color: #cce0ff; 
+}
+
+
+/* Styling for the list of student IDs */
+ul.student-ids {
+    padding-left: 20px;
+    /* Adds space to the left of the list */
+}
+
+/* Removes list bullets for nested lists */
+ul.student-ids ul {
+    list-style-type: none;
+    /* Removes bullet points */
+    padding-left: 0;
+    /* Removes extra space on the left */
+}
+
+/* Aligns text to the right */
+.right-align {
+    text-align: right;
+    /* Aligns text to the right side */
+}
+
+/* Flexbox layout for the profile section */
+.profile {
+    display: flex;
+    /* Enables flexbox */
+    flex-direction: column;
+    /* Arranges items vertically */
+    gap: 40px;
+    /* Adds space between the profile items */
+    margin-bottom: 40px;
+    /* Adds space below the profile */
+}
+
+/* Styling for each profile card */
+.profile-card {
+    display: flex;
+    /* Enables flexbox within the profile card */
+    justify-content: space-between;
+    /* Spaces out the items evenly */
+    align-items: flex-start;
+    /* Aligns items to the top of the card */
+    background-color: #fff;
+    /* Gives a white background to the card */
+    padding: 20px;
+    /* Adds space inside the card */
+    border: 1px solid #ddd;
+    /* Adds a light border around the card */
+    border-radius: 10px;
+    /* Rounds the corners of the card */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Adds a subtle shadow to the card */
+}
+
+/* Styling for the profile information section */
+.info {
+    flex: 1;
+    /* Allows this section to take up remaining space */
+    padding-right: 20px;
+    /* Adds space to the right */
+}
+
+/* Styling for the profile photo section */
+.photo {
+    flex-shrink: 0;
+    /* Prevents the photo from shrinking */
+}
+
+/* Styling for the profile photo image */
+.photo img {
+    width: 200px;
+    /* Sets the image width */
+    border: 2px solid #333;
+    /* Adds a border around the image */
+    float: right;
+    /* Floats the image to the right */
+    border-radius: 5px;
+    /* Rounds the corners of the image */
+}
+
+/* Styling for the caption below the photo */
+.photo p {
+    text-align: center;
+    /* Centers the text below the image */
+    margin-top: 5px;
+    /* Adds space above the caption */
+    font-style: italic;
+    /* Makes the caption text italic */
+}
+
+/* Styling for the description list (dl) */
+dl {
+    background-color: #fff;
+    /* Gives a white background to the description list */
+    padding: 15px;
+    /* Adds space inside the list */
+    border-radius: 8px;
+    /* Rounds the corners of the list */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    /* Adds a light shadow to the list */
+}
+
+/* Styling for the term (dt) in the description list */
+dt {
+    font-weight: bold;
+    /* Makes the term bold */
+    margin-top: 10px;
+    /* Adds space above the term */
+}
+
+/* Styling for the description (dd) in the list */
+dd {
+    margin-left: 20px;
+    /* Adds space to the left of the description */
+    margin-bottom: 10px;
+    /* Adds space below the description */
+}
+
+/* Styling for the "seng" header section */
+.seng {
+    background-image: url('cat.jpeg');
+    /* Sets the background image */
+    background-size: contain;
+    /* Makes sure the image covers the entire area */
+    background-position: center;
+    /* Centers the background image */
+    color: #070000c1;
+    /* Makes the text white to stand out against the image */
+    padding: 250px 0;
+    /* Adds padding to create space around the text */
+    text-align: center;
+    /* Centers the text */
+    font-size: 5em;
+    /* Increases the font size */
+    margin: 0;
+    /* Removes any default margin */
+}

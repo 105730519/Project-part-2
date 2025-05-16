@@ -16,9 +16,6 @@ if (!$conn) {
     <p>Your trusted team for tech innovation and career opportunities.</p>
 </main>
 
-<?php
-include("includes/footer.inc"); 
-?>
 <div id="biggest-image">
     <div class="wrapper">
         <h1><strong>Welcome to Nhom Nhom</strong></h1>

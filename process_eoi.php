@@ -1,5 +1,4 @@
 <?php
-// Include database settings
 include 'settings.php';
 
 // Prevent direct access
@@ -11,41 +10,66 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 // Database connection
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
-    die("<html><body><h1>Error</h1><p>Database connection failed.</p><a href='apply.php'>Back to form</a></body></html>");
+    die("<html><body><h1>Error</h1><p>Database connection failed: " . mysqli_connect_error() . "</p><a href='apply.php'>Back to form</a></body></html>");
 }
 
 //EOI table link
 
 if (!mysqli_query($conn, $create_table)) {
-    die("<html><body><h1>Error</h1><p>Failed to create table.</p><a href='apply.php'>Back to form</a></body></html>");
+    die("<html><body><h1>Error</h1><p>Failed to create table: " . mysqli_error($conn) . "</p><a href='apply.php'>Back to form</a></body></html>");
 }
 
+// Function to sanitize input
+function sanitize($data, $conn) {
+    $data = trim($data);
+    $data = strip_tags($data);
+    return mysqli_real_escape_string($conn, $data);
+}
 // Get and sanitize form data
-$job_reference = isset($_POST['job_reference']) ? trim(strip_tags($_POST['job_reference'])) : '';
-$first_name = isset($_POST['first_name']) ? trim(strip_tags($_POST['first_name'])) : '';
-$last_name = isset($_POST['last_name']) ? trim(strip_tags($_POST['last_name'])) : '';
-$street_address = isset($_POST['street_address']) ? trim(strip_tags($_POST['street_address'])) : '';
-$suburb_town = isset($_POST['suburb_town']) ? trim(strip_tags($_POST['suburb_town'])) : '';
-$state = isset($_POST['state']) ? trim(strip_tags($_POST['state'])) : '';
-$postcode = isset($_POST['postcode']) ? trim(strip_tags($_POST['postcode'])) : '';
-$email = isset($_POST['email']) ? trim(strip_tags($_POST['email'])) : '';
-$phone = isset($_POST['phone']) ? trim(strip_tags($_POST['phone'])) : '';
-$skill1 = isset($_POST['skill1']) ? trim(strip_tags($_POST['skill1'])) : '';
-$skill2 = isset($_POST['skill2']) ? trim(strip_tags($_POST['skill2'])) : '';
-$skill3 = isset($_POST['skill3']) ? trim(strip_tags($_POST['skill3'])) : '';
-$other_skills = isset($_POST['other_skills']) ? trim(strip_tags($_POST['other_skills'])) : '';
+$job_reference = sanitize($_POST['job_reference'] ?? '', $conn);
+$first_name = sanitize($_POST['first_name'] ?? '', $conn);
+$last_name = sanitize($_POST['last_name'] ?? '', $conn);
+$date_of_birth = sanitize($_POST['date_of_birth'] ?? '', $conn);
+$gender = sanitize($_POST['gender'] ?? '', $conn);
+$street_address = sanitize($_POST['street_address'] ?? '', $conn);
+$suburb_town = sanitize($_POST['suburb_town'] ?? '', $conn);
+$state = sanitize($_POST['state'] ?? '', $conn);
+$postcode = sanitize($_POST['postcode'] ?? '', $conn);
+$email = sanitize($_POST['email'] ?? '', $conn);
+$phone = sanitize($_POST['phone'] ?? '', $conn);
+$skill1 = sanitize($_POST['skill1'] ?? '', $conn);
+$skill2 = sanitize($_POST['skill2'] ?? '', $conn);
+$skill3 = sanitize($_POST['skill3'] ?? '', $conn);
+$other_skills = sanitize($_POST['other_skills'] ?? '', $conn);
+$required_skills = isset($_POST['required_skills']) ? 1 : 0;
 
-// Basic validation: check required fields
-$error = '';
-if (empty($job_reference)) $error .= "<li>Job Reference Number is required.</li>";
-if (empty($first_name)) $error .= "<li>First Name is required.</li>";
-if (empty($last_name)) $error .= "<li>Last Name is required.</li>";
-if (empty($street_address)) $error .= "<li>Street Address is required.</li>";
-if (empty($suburb_town)) $error .= "<li>Suburb/Town is required.</li>";
-if (empty($state)) $error .= "<li>State is required.</li>";
-if (empty($postcode)) $error .= "<li>Postcode is required.</li>";
-if (empty($email)) $error .= "<li>Email Address is required.</li>";
-if (empty($phone)) $error .= "<li>Phone Number is required.</li>";
+// Server-side validation 
+$error = [];
+if (empty($job_reference)) $error[] = "Job Reference Number is required.";
+if (strlen($first_name) > 20) $error[] = "First Name must not exceed 20 characters.";
+if (empty($first_name)) $error[] = "First Name is required.";
+if (strlen($last_name) > 20) $error[] = "Last Name must not exceed 20 characters.";
+if (empty($last_name)) $error[] = "Last Name is required.";
+if (!preg_match("/^\d{2}\/\d{2}\/\d{4}$/", $date_of_birth)) $error[] = "Date of Birth must be in dd/mm/yyyy format.";
+if (!in_array($gender, ['M', 'F', 'Other'])) $error[] = "Invalid Gender.";
+if (strlen($street_address) > 40) $error[] = "Street Address must not exceed 40 characters.";
+if (empty($street_address)) $error[] = "Street Address is required.";
+if (strlen($suburb_town) > 40) $error[] = "Suburb/Town must not exceed 40 characters.";
+if (empty($suburb_town)) $error[] = "Suburb/Town is required.";
+if (!in_array($state, ['VIC', 'NSW', 'QLD', 'NT', 'WA', 'SA', 'TAS', 'ACT'])) $error[] = "Invalid State.";
+if (!preg_match("/^\d{4}$/", $postcode)) $error[] = "Postcode must be exactly 4 digits.";
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $error[] = "Invalid email format.";
+if (!preg_match("/^[0-9]{8,12}$/", $phone)) $error[] = "Phone Number must be 8 to 12 digits.";
+if ($required_skills && empty($other_skills)) $error[] = "Other Skills is required if checkbox is selected.";
+
+if (!empty($error)) {
+    echo "<html><body><h1>Submission Error</h1><p>Please fix the following errors:</p><ul><li>" . implode("</li><li>", $error) . "</li></ul>";
+    echo "<a href='apply.php'>Back to form</a></body></html>";
+    mysqli_close($conn);
+    exit();
+}
+
+$date_of_birth = DateTime::createFromFormat('d/m/Y', $date_of_birth)->format('Y-m-d');
 
 // Check if there are errors
 if ($error != '') {
@@ -57,23 +81,26 @@ if ($error != '') {
 
 // Insert data into EOI table
 $query = "INSERT INTO eoi (
-    job_reference_number, first_name, last_name, street_address, suburb_town, state, postcode,
-    email_address, phone_number, skill1, skill2, skill3, other_skills, status
-) VALUES (
-    '$job_reference', '$first_name', '$last_name', '$street_address', '$suburb_town', '$state', '$postcode',
-    '$email', '$phone', '$skill1', '$skill2', '$skill3', '$other_skills', 'New'
-)";
-if (mysqli_query($conn, $query)) {
+    job_reference_number, first_name, last_name, date_of_birth, gender, street_address, suburb_town,
+    state, postcode, email_address, phone_number, skill1, skill2, skill3, other_skills, status
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'New')";
+$stmt = mysqli_prepare($conn, $query);
+mysqli_stmt_bind_param($stmt, "sssssssssssssss", $job_reference, $first_name, $last_name, $date_of_birth, $gender, $street_address, $suburb_town, $state, $postcode, $email, $phone, $skill1, $skill2, $skill3, $other_skills);
+
+if (mysqli_stmt_execute($stmt)) {
     $eoi_number = mysqli_insert_id($conn);
     echo "<html><body><h1>Submission Successful</h1>";
     echo "<p>Your Expression of Interest has been submitted.</p>";
     echo "<p><strong>EOI Number:</strong> $eoi_number</p>";
     echo "<a href='apply.php'>Submit another EOI</a></body></html>";
 } else {
-    echo "<html><body><h1>Error</h1><p>Failed to submit EOI. Please try again.</p>";
+    echo "<html><body><h1>Error</h1><p>Failed to submit EOI: " . mysqli_error($conn) . "</p>";
     echo "<a href='apply.php'>Back to form</a></body></html>";
 }
 
-// Close connection
+mysqli_stmt_close($stmt);
 mysqli_close($conn);
 ?>
+<?php include 'header.inc'; ?>
+<?php include 'menu.inc'; ?>
+<?php include 'footer.inc'; ?>
