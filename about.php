@@ -137,7 +137,7 @@ include("menu.inc");
         <dt>Tran Minh Thien Phan</dt>
         <dd>Homepage, job listings, job application form, back-end processing, and CSS styling</dd>
         <dt>Aungkita Chakma</dt>
-        <dd>Home page, CSS file,styling enhancements, and form validation</dd>
+        <dd>Home page,about page, CSS file,styling enhancements, and form validation</dd>
     </dl>
 
     <?php include('footer.inc'); ?>
