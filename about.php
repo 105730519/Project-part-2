@@ -121,7 +121,7 @@ include("menu.inc");
                     </ul>
                 </div>
                 <div class="photo">
-                    <img src="images/cat3.jpeg" alt="Aungkita Chakma">
+                    <img src="images/aungkita.jpg" alt="Aungkita Chakma">
                 </div>
             </div>
         </section>
