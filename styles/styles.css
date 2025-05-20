@@ -579,201 +579,156 @@ input[type="radio"] {
 }
 
 /* ================== ABOUT PAGE STYLES (from about.css) ================== */
-/* Basic styling for the body */
-body.about {
-    font-family: "Istok Web", Arial, sans-serif;
-    /* Sets the font family */
+body {
+    font-family: Arial, sans-serif;
     line-height: 1.6;
-    /* Makes the text more readable with spaced lines */
     margin: 0;
-    /* Removes the default margin around the page */
     padding: 0 20px;
-    /* Adds space on the left and right sides of the page */
-    background-color: #f4f4f4;
-    /* Sets a light grey background color */
+    background-color: #f4f4f4b5;
 }
 
-/* Center-aligns all headers (h1, h2, h3) */
-h1,
-h2,
-h3 {
+h1, h2, h3 {
     text-align: center;
-    /* Centers the text horizontally */
     margin-top: 30px;
-    /* Adds space above the header */
     color: #222;
-    /* Sets the text color to a dark shade */
 }
 
-/* Styling for the table */
 table {
     margin: 20px auto;
-    /* Centers the table horizontally and adds space above and below */
     border-collapse: collapse;
-    /* Ensures table borders are merged together */
     width: 70%;
-    /* Sets the table to take up 70% of the page width */
 }
 
-/* Styling for the table caption (if present) */
 table caption {
     font-weight: bold;
-    /* Makes the caption text bold */
     margin-bottom: 10px;
-    /* Adds space below the caption */
 }
 
-/* Styling for table headers and data cells */
-table th,
-table td {
+table th, table td {
     border: 1px solid #333;
-    /* Adds a solid border around the cells */
     padding: 10px;
-    /* Adds space inside each cell */
     background-color: #e6f2ff;
-    /* Gives a light blue background to each cell */
     text-align: center;
-    /* Centers the content inside the cells */
 }
 
-/* Hover effect for table headers and cells */
 table th:hover, table td:hover {
-    background-color: #cce0ff; 
+    background-color: #cce0ff;
 }
 
-
-/* Styling for the list of student IDs */
 ul.student-ids {
     padding-left: 20px;
-    /* Adds space to the left of the list */
 }
 
-/* Removes list bullets for nested lists */
 ul.student-ids ul {
     list-style-type: none;
-    /* Removes bullet points */
     padding-left: 0;
-    /* Removes extra space on the left */
 }
 
-/* Aligns text to the right */
 .right-align {
     text-align: right;
-    /* Aligns text to the right side */
 }
 
-/* Flexbox layout for the profile section */
 .profile {
     display: flex;
-    /* Enables flexbox */
     flex-direction: column;
-    /* Arranges items vertically */
     gap: 40px;
-    /* Adds space between the profile items */
     margin-bottom: 40px;
-    /* Adds space below the profile */
 }
 
-/* Styling for each profile card */
 .profile-card {
     display: flex;
-    /* Enables flexbox within the profile card */
     justify-content: space-between;
-    /* Spaces out the items evenly */
     align-items: flex-start;
-    /* Aligns items to the top of the card */
     background-color: #fff;
-    /* Gives a white background to the card */
     padding: 20px;
-    /* Adds space inside the card */
     border: 1px solid #ddd;
-    /* Adds a light border around the card */
     border-radius: 10px;
-    /* Rounds the corners of the card */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    /* Adds a subtle shadow to the card */
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-/* Styling for the profile information section */
 .info {
     flex: 1;
-    /* Allows this section to take up remaining space */
     padding-right: 20px;
-    /* Adds space to the right */
 }
 
-/* Styling for the profile photo section */
 .photo {
     flex-shrink: 0;
-    /* Prevents the photo from shrinking */
 }
 
-/* Styling for the profile photo image */
 .photo img {
     width: 200px;
-    /* Sets the image width */
     border: 2px solid #333;
-    /* Adds a border around the image */
     float: right;
-    /* Floats the image to the right */
     border-radius: 5px;
-    /* Rounds the corners of the image */
 }
 
-/* Styling for the caption below the photo */
 .photo p {
     text-align: center;
-    /* Centers the text below the image */
     margin-top: 5px;
-    /* Adds space above the caption */
     font-style: italic;
-    /* Makes the caption text italic */
 }
 
-/* Styling for the description list (dl) */
 dl {
     background-color: #fff;
-    /* Gives a white background to the description list */
     padding: 15px;
-    /* Adds space inside the list */
     border-radius: 8px;
-    /* Rounds the corners of the list */
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-    /* Adds a light shadow to the list */
 }
 
-/* Styling for the term (dt) in the description list */
 dt {
     font-weight: bold;
-    /* Makes the term bold */
     margin-top: 10px;
-    /* Adds space above the term */
 }
 
-/* Styling for the description (dd) in the list */
 dd {
     margin-left: 20px;
-    /* Adds space to the left of the description */
     margin-bottom: 10px;
-    /* Adds space below the description */
 }
 
-/* Styling for the "seng" header section */
 .seng {
-    background-image: url('cat.jpeg');
-    /* Sets the background image */
-    background-size: contain;
-    /* Makes sure the image covers the entire area */
+    background-image: url('whitebg.jpg');
+    background-size: cover;
     background-position: center;
-    /* Centers the background image */
-    color: #070000c1;
-    /* Makes the text white to stand out against the image */
-    padding: 250px 0;
-    /* Adds padding to create space around the text */
+    background-repeat: no-repeat;
+    color: rgba(8, 1, 1, 0.687);
+    padding: 200px 0;
     text-align: center;
-    /* Centers the text */
     font-size: 5em;
-    /* Increases the font size */
     margin: 0;
-    /* Removes any default margin */
+}
+
+/* === Enhancements by Aungkita Chakma === */
+
+.profile-card:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.photo img:hover {
+    border-color: #007acc;
+    transition: border-color 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    .profile {
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .profile-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .info {
+        padding-right: 0;
+    }
+
+    .photo img {
+        width: 150px;
+    }
 }
