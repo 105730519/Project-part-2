@@ -133,11 +133,11 @@ include("menu.inc");
     <h2>Members' Contributions</h2>
     <dl>
         <dt>Nguyen Gia Bao Pham</dt>
-        <dd>Home page, CSS file and sections of job application page</dd>
+        <dd>Homepage, job listings, job application form, back-end processing, and CSS styling</dd>
         <dt>Tran Minh Thien Phan</dt>
-        <dd>Home page, CSS file and sections of job application page</dd>
+        <dd>Homepage, job listings, job application form, back-end processing, and CSS styling</dd>
         <dt>Aungkita Chakma</dt>
-        <dd>Home page, CSS file</dd>
+        <dd>Home page, CSS file,styling enhancements, and form validation</dd>
     </dl>
 
     <?php include('footer.inc'); ?>
