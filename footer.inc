@@ -1,3 +1,4 @@
+
 <footer>
     <div class="wrapper">
         <p>&copy; 2025 Nhom Nhom. All rights reserved.</p>
@@ -14,14 +15,14 @@
                 <li><a href="#">Facebook</a></li>
                 <li><a href="#">X</a></li>
                 <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">Instagram</a></li>
             </ul>
             <ul>
                 <li><h5>Help</h5></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#" title="Need support?">Support</a></li>
+                <li><a href="#" title="Contact our team">Contact</a></li>
+                <li><a href="enhancements.php" title="See added features">Enhancements</a></li>
             </ul>
         </div>
     </div>
 </footer>
-</body>
-</html>
