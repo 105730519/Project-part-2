@@ -58,6 +58,28 @@ if (strlen($suburb_town) > 40) $error[] = "Suburb/Town must not exceed 40 charac
 if (empty($suburb_town)) $error[] = "Suburb/Town is required.";
 if (!in_array($state, ['VIC', 'NSW', 'QLD', 'NT', 'WA', 'SA', 'TAS', 'ACT'])) $error[] = "Invalid State.";
 if (!preg_match("/^\d{4}$/", $postcode)) $error[] = "Postcode must be exactly 4 digits.";
+
+        // New validation: Postcode must match state
+         $first_digit = substr($postcode, 0, 1);
+         
+         if ($state == 'VIC' && ($first_digit != '3' && $first_digit != '8')) {
+             $error[] = "VIC postcodes must start with 3 or 8.";
+         } elseif ($state == 'NSW' && ($first_digit != '1' && $first_digit != '2')) {
+             $error[] = "NSW postcodes must start with 1 or 2.";
+         } elseif ($state == 'QLD' && ($first_digit != '4' && $first_digit != '9')) {
+             $error[] = "QLD postcodes must start with 4 or 9.";
+         } elseif ($state == 'NT' && $first_digit != '0') {
+             $error[] = "NT postcodes must start with 0.";
+         } elseif ($state == 'WA' && $first_digit != '6') {
+             $error[] = "WA postcodes must start with 6.";
+         } elseif ($state == 'SA' && $first_digit != '5') {
+             $error[] = "SA postcodes must start with 5.";
+         } elseif ($state == 'TAS' && $first_digit != '7') {
+             $error[] = "TAS postcodes must start with 7.";
+         } elseif ($state == 'ACT' && $first_digit != '0') {
+             $error[] = "ACT postcodes must start with 0.";
+         }
+         
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $error[] = "Invalid email format.";
 if (!preg_match("/^[0-9]{8,12}$/", $phone)) $error[] = "Phone Number must be 8 to 12 digits.";
 if ($required_skills && empty($other_skills)) $error[] = "Other Skills is required if checkbox is selected.";
