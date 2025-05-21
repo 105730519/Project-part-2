@@ -577,6 +577,14 @@ input[type="radio"] {
 .required {
     color: red;
 }
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #007acc;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 
 /* ================== ABOUT PAGE STYLES (from about.css) ================== */
 body {
