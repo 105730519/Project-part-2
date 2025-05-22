@@ -4,14 +4,14 @@ include("menu.inc");
 require("settings.php");
 
 
-// Database connection
+// Database connection, if connection fails, display error and stop execution
 $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
     echo "<p>Database connection failed: " . mysqli_connect_error() . "</p>";
     exit();
 }
 
-
+// Handle login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Invalid login credentials.";
     }
 }
+// HTML Login 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,14 +39,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Document</title>
 </head>
 <body>
-    <div id="login">
-        <h1>Sign in</h1>
-      <form method="POST">
-        <label>Username: <input type="text" name="username" required></label><br>
-        <label>Password: <input type="password" name="password" required></label><br>
-        <input type="submit" value="Login">
-      </form>
+<div class="container">
+  <form class="form" method="POST">
+    <h1 class="title">Sign In</h1>
+    <p class="subtitle">Welcome back! Please enter your details</p>
+
+    <label>Email</label>
+    <input type="text" name="username" placeholder="Enter your email" required>
+
+    <label>Password</label>
+    <div class="password-wrapper">
+      <input type="password" name="password" placeholder="••••••••" required>
+      <span class="toggle">&#128065;</span>
     </div>
+
+    <div class="options">
+      <label><input type="checkbox"> Remember for 30 Days</label>
+      <a href="#">Forgot password</a>
+    </div>
+
+    <input type="submit" value="Sign in" class="btn-primary">
+
+    <div class="or">OR</div>
+
+    <div class="social-buttons">
+      <button type="button" class="google">Sign up with Google</button>
+      <button type="button" class="facebook">Sign up with Facebook</button>
+    </div>
+
+    <p class="signup-text">Don't have an account? <a href="#">Sign up</a></p>
+  </form>
+</div>
 </body>
 </html>
 
