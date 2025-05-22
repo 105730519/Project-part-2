@@ -7,7 +7,7 @@ include("menu.inc");
     <form action="process_eoi.php" method="post" class="form" novalidate="novalidate">
         <div class="apply-title">
             <h1>Job Application Form</h1>
-            <p>Fields marked with an <span class="required">*</span> are required </p>
+            <p>Fields marked with an <span class="required">*</span> are required</p>
         </div>
 
         <div class="JobReference">
@@ -15,8 +15,8 @@ include("menu.inc");
             <p>
                 <select name="job_reference" id="job_reference" required>
                     <option value="">Select a Job</option>
-                    <option value="J001">J001 - Software Engineer</option>
-                    <option value="J002">J002 - Data Analyst</option>
+                    <option value="J001">J001 - AI/ML Engineer (Junior Level)</option>
+                    <option value="J002">J002 - AI/ML Engineer (Senior Level)</option>
                     <!-- Add more job references as needed -->
                 </select>
             </p>
@@ -25,7 +25,7 @@ include("menu.inc");
         <div class="Name">
             <p><label for="first_name">Name <span class="required">*</span></label></p>
             <p><input type="text" name="first_name" id="first_name" placeholder="First Name" maxlength="20" required></p>
-            <p><input type="text" name="last_name" placeholder="Last Name" maxlength="20" required></p>
+            <p><label for="last_name"></label><input type="text" name="last_name" id="last_name" placeholder="Last Name" maxlength="20" required></p>
         </div>
 
         <div class="Birth">
@@ -35,12 +35,9 @@ include("menu.inc");
 
         <fieldset class="Gender">
             <legend>Gender <span class="required">*</span></legend>
-            <p><label for="Male">Male</label></p>
-            <p><input type="radio" id="Male" name="gender" value="M" required></p>
-            <p><label for="Female">Female</label></p>
-            <p><input type="radio" id="Female" name="gender" value="F"></p>
-            <p><label for="Other">Other</label></p>
-            <p><input type="radio" id="Other" name="gender" value="Other"></p>
+            <p><label><input type="radio" id="Male" name="gender" value="M" required> Male</label></p>
+            <p><label><input type="radio" id="Female" name="gender" value="F"> Female</label></p>
+            <p><label><input type="radio" id="Other" name="gender" value="Other"> Other</label></p>
         </fieldset>
 
         <div class="Address">
@@ -62,7 +59,7 @@ include("menu.inc");
                 </select>
             </p>
             <p><label for="postcode">Postcode <span class="required">*</span></label></p>
-            <p><input type="text" id="postcode" name="postcode" maxlength="4" placeholder="ex.1234" required></p>
+            <p><input type="text" id="postcode" name="postcode" maxlength="4" placeholder="ex. 1234" required></p>
         </div>
 
         <div class="Information">
@@ -70,7 +67,7 @@ include("menu.inc");
             <p><label for="email_address">Email Address</label></p>
             <p><input type="email" id="email_address" name="email_address" placeholder="name@gmail.com" required></p>
             <p><label for="phone_number">Phone Number</label></p>
-            <p><input type="text" id="phone_number" name="phone_number" placeholder="0412345678" maxlength="12" required></p>
+            <p><input type="tel" id="phone_number" name="phone_number" placeholder="0412345678" pattern="[0-9]{8,12}" maxlength="12" required></p>
         </div>
 
         <div class="Qualification">
@@ -87,11 +84,16 @@ include("menu.inc");
 
         <div id="Other">
             <p><label for="other_skills">Other Skills</label></p>
-            <textarea name="other_skills" id="other_skills">Write description of your skills here...</textarea>
+            <textarea name="other_skills" id="other_skills" rows="4" cols="50">Write description of your skills here...</textarea>
+        </div>
+
+        <div class="Degree">
+            <p><label for="degree">Degree (Optional)</label></p>
+            <p><input type="text" name="degree" id="degree" placeholder="e.g., BSc Computer Science" maxlength="100"></p>
         </div>
 
         <div class="form-footer" role="group" aria-label="Form Actions">
-            <input type="submit" value="Apply">
+            <input type="submit" value="Apply" class="submit-button">
             <input type="reset" value="Reset">
         </div>
     </form>
