@@ -591,7 +591,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 0 20px;
+    padding: 0 ;
     background-color: #f4f4f4b5;
 }
 
@@ -652,7 +652,8 @@ ul.student-ids ul {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
+    max-width:none;
+    width:100%;
     margin: 0 auto;
 }
 
@@ -698,16 +699,13 @@ dd {
 .seng {
     background-image: url('whitebg.jpg');
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: rgba(8, 1, 1, 0.687);
+    background-position:center;
+    color:rgba(8, 1, 1, 0.687);
     padding: 200px 0;
     text-align: center;
     font-size: 5em;
     margin: 0;
 }
-
-/* === Enhancements by Aungkita Chakma === */
 
 .profile-card:hover {
     transform: scale(1.02);
