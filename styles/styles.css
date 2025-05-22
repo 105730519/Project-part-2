@@ -743,7 +743,7 @@ dd {
 purpose: CSS for login page */ 
 
 
-  body {
+  body.login {
     background: #f5f7fa;
     font-family: 'Segoe UI', sans-serif;
     display: flex;

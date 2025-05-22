@@ -128,6 +128,42 @@ mysqli_close($conn);
             </tr>
         <?php endforeach; ?>
     </table>
+
+<body>
+<div class="container">
+    <?php 
+        // Check if the user is logged in and is the specific manager
+        if (isset($_SESSION['username']) && $_SESSION['username'] == 'Nguyen Gia Bao Pham') {
+            echo '<h1>Hi Bao the Manager</h1>';
+
+            // Query to fetch manager details
+            $query = "SELECT id, name, description FROM managers";
+            $result = mysqli_query($conn, $query); 
+
+            // If there are any results, display them in a table
+            if (mysqli_num_rows($result) > 0) {
+                echo '<table border="1" cellpadding="10">';
+                echo '<tr><th>ID</th><th>Name</th><th>Description</th></tr>';
+
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<tr>';
+                    echo '<td>' . htmlspecialchars($row['id']) . '</td>';
+                    echo '<td>' . htmlspecialchars($row['name']) . '</td>';
+                    echo '<td>' . htmlspecialchars($row['description']) . '</td>';
+                    echo '</tr>';
+                }
+
+                echo '</table>';
+            } else {
+                echo '<p>No manager records found in the database.</p>';
+            }
+        } else {
+            // If not logged in as the manager
+            echo '<p>This page is for manager only!</p>';
+        }
+    ?> 
+</div>
+</body>
 <?php endif; ?>
 
 <?php include 'footer.inc'; ?>
