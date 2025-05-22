@@ -1,4 +1,6 @@
 <?php
+include 'header.inc';
+include 'menu.inc';
 include 'settings.php';
 
 // Prevent direct access
@@ -10,13 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
 // Database connection
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 if (!$conn) {
-    die("<html><body><h1>Error</h1><p>Database connection failed: " . mysqli_connect_error() . "</p><a href='apply.php'>Back to form</a></body></html>");
+    die("<h1>Error</h1><p>Database connection failed: " . mysqli_connect_error() . "</p><a href='apply.php'>Back to form</a>");
 }
 
-//EOI table link
-
+// EOI table creation (assuming $create_table is defined in settings.php)
 if (!mysqli_query($conn, $create_table)) {
-    die("<html><body><h1>Error</h1><p>Failed to create table: " . mysqli_error($conn) . "</p><a href='apply.php'>Back to form</a></body></html>");
+    die("<h1>Error</h1><p>Failed to create table: " . mysqli_error($conn) . "</p><a href='apply.php'>Back to form</a>");
 }
 
 // Function to sanitize input
@@ -25,6 +26,7 @@ function sanitize($data, $conn) {
     $data = strip_tags($data);
     return mysqli_real_escape_string($conn, $data);
 }
+
 // Get and sanitize form data
 $job_reference = sanitize($_POST['job_reference'] ?? '', $conn);
 $first_name = sanitize($_POST['first_name'] ?? '', $conn);
@@ -35,22 +37,27 @@ $street_address = sanitize($_POST['street_address'] ?? '', $conn);
 $suburb_town = sanitize($_POST['suburb_town'] ?? '', $conn);
 $state = sanitize($_POST['state'] ?? '', $conn);
 $postcode = sanitize($_POST['postcode'] ?? '', $conn);
-$email = sanitize($_POST['email'] ?? '', $conn);
-$phone = sanitize($_POST['phone'] ?? '', $conn);
+$email = sanitize($_POST['email_address'] ?? '', $conn);
+$phone = sanitize($_POST['phone_number'] ?? '', $conn);
 $skill1 = sanitize($_POST['skill1'] ?? '', $conn);
 $skill2 = sanitize($_POST['skill2'] ?? '', $conn);
 $skill3 = sanitize($_POST['skill3'] ?? '', $conn);
 $other_skills = sanitize($_POST['other_skills'] ?? '', $conn);
 $required_skills = isset($_POST['required_skills']) ? 1 : 0;
+$degree = sanitize($_POST['degree'] ?? '', $conn);
 
-// Server-side validation 
+// Combine skills into a single field (as a string with newlines)
+$skills = implode("\n", array_filter([$skill1, $skill2, $skill3]));
+
+// Server-side validation
 $error = [];
-if (empty($job_reference)) $error[] = "Job Reference Number is required.";
+if (empty($job_reference)) $error[] = "Job Reference is required.";
 if (strlen($first_name) > 20) $error[] = "First Name must not exceed 20 characters.";
 if (empty($first_name)) $error[] = "First Name is required.";
 if (strlen($last_name) > 20) $error[] = "Last Name must not exceed 20 characters.";
 if (empty($last_name)) $error[] = "Last Name is required.";
-if (!preg_match("/^\d{2}\/\d{2}\/\d{4}$/", $date_of_birth)) $error[] = "Date of Birth must be in dd/mm/yyyy format.";
+$date = DateTime::createFromFormat('d/m/Y', $date_of_birth);
+if (!$date || $date->format('d/m/Y') !== $date_of_birth) $error[] = "Date of Birth must be in dd/mm/yyyy format and valid.";
 if (!in_array($gender, ['M', 'F', 'Other'])) $error[] = "Invalid Gender.";
 if (strlen($street_address) > 40) $error[] = "Street Address must not exceed 40 characters.";
 if (empty($street_address)) $error[] = "Street Address is required.";
@@ -58,71 +65,62 @@ if (strlen($suburb_town) > 40) $error[] = "Suburb/Town must not exceed 40 charac
 if (empty($suburb_town)) $error[] = "Suburb/Town is required.";
 if (!in_array($state, ['VIC', 'NSW', 'QLD', 'NT', 'WA', 'SA', 'TAS', 'ACT'])) $error[] = "Invalid State.";
 if (!preg_match("/^\d{4}$/", $postcode)) $error[] = "Postcode must be exactly 4 digits.";
-
-        // New validation: Postcode must match state
-         $first_digit = substr($postcode, 0, 1);
-         
-         if ($state == 'VIC' && ($first_digit != '3' && $first_digit != '8')) {
-             $error[] = "VIC postcodes must start with 3 or 8.";
-         } elseif ($state == 'NSW' && ($first_digit != '1' && $first_digit != '2')) {
-             $error[] = "NSW postcodes must start with 1 or 2.";
-         } elseif ($state == 'QLD' && ($first_digit != '4' && $first_digit != '9')) {
-             $error[] = "QLD postcodes must start with 4 or 9.";
-         } elseif ($state == 'NT' && $first_digit != '0') {
-             $error[] = "NT postcodes must start with 0.";
-         } elseif ($state == 'WA' && $first_digit != '6') {
-             $error[] = "WA postcodes must start with 6.";
-         } elseif ($state == 'SA' && $first_digit != '5') {
-             $error[] = "SA postcodes must start with 5.";
-         } elseif ($state == 'TAS' && $first_digit != '7') {
-             $error[] = "TAS postcodes must start with 7.";
-         } elseif ($state == 'ACT' && $first_digit != '0') {
-             $error[] = "ACT postcodes must start with 0.";
-         }
-         
+$first_digit = substr($postcode, 0, 1);
+if ($state == 'VIC' && ($first_digit != '3' && $first_digit != '8')) {
+    $error[] = "VIC postcodes must start with 3 or 8.";
+} elseif ($state == 'NSW' && ($first_digit != '1' && $first_digit != '2')) {
+    $error[] = "NSW postcodes must start with 1 or 2.";
+} elseif ($state == 'QLD' && ($first_digit != '4' && $first_digit != '9')) {
+    $error[] = "QLD postcodes must start with 4 or 9.";
+} elseif ($state == 'NT' && $first_digit != '0') {
+    $error[] = "NT postcodes must start with 0.";
+} elseif ($state == 'WA' && $first_digit != '6') {
+    $error[] = "WA postcodes must start with 6.";
+} elseif ($state == 'SA' && $first_digit != '5') {
+    $error[] = "SA postcodes must start with 5.";
+} elseif ($state == 'TAS' && $first_digit != '7') {
+    $error[] = "TAS postcodes must start with 7.";
+} elseif ($state == 'ACT' && $first_digit != '0') {
+    $error[] = "ACT postcodes must start with 0.";
+}
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $error[] = "Invalid email format.";
 if (!preg_match("/^[0-9]{8,12}$/", $phone)) $error[] = "Phone Number must be 8 to 12 digits.";
 if ($required_skills && empty($other_skills)) $error[] = "Other Skills is required if checkbox is selected.";
 
+// Display errors if any
 if (!empty($error)) {
-    echo "<html><body><h1>Submission Error</h1><p>Please fix the following errors:</p><ul><li>" . implode("</li><li>", $error) . "</li></ul>";
-    echo "<a href='apply.php'>Back to form</a></body></html>";
+    echo "<h1>Submission Error</h1><p>Please fix the following errors:</p><ul><li>" . implode("</li><li>", $error) . "</li></ul>";
+    echo "<a href='apply.php'>Back to form</a>";
     mysqli_close($conn);
+    include 'footer.inc';
     exit();
 }
 
-$date_of_birth = DateTime::createFromFormat('d/m/Y', $date_of_birth)->format('Y-m-d');
+// Format date for database
+$date_of_birth = $date->format('Y-m-d');
 
-// Check if there are errors
-if ($error != '') {
-    echo "<html><body><h1>Submission Error</h1><p>Please fix the following errors:</p><ul>$error</ul>";
-    echo "<a href='apply.php'>Back to form</a></body></html>";
-    mysqli_close($conn);
-    exit();
-}
+// Set degree to NULL if empty
+$degree = empty($degree) ? NULL : $degree;
 
-// Insert data into EOI table
-$query = "INSERT INTO eoi (
-    job_reference_number, first_name, last_name, date_of_birth, gender, street_address, suburb_town,
-    state, postcode, email_address, phone_number, skill1, skill2, skill3, other_skills, status
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'New')";
+// Insert data into EOI table with corrected column names
+$query = "INSERT INTO eoi (job_ref, first_name, last_name, dob, gender, street_address, suburb, state, postcode, email, phone, skills, other_skills, degree, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'NEW')";
 $stmt = mysqli_prepare($conn, $query);
-mysqli_stmt_bind_param($stmt, "sssssssssssssss", $job_reference, $first_name, $last_name, $date_of_birth, $gender, $street_address, $suburb_town, $state, $postcode, $email, $phone, $skill1, $skill2, $skill3, $other_skills);
+mysqli_stmt_bind_param($stmt, "ssssssssssssss", $job_reference, $first_name, $last_name, $date_of_birth, $gender, $street_address, $suburb_town, $state, $postcode, $email, $phone, $skills, $other_skills, $degree);
 
 if (mysqli_stmt_execute($stmt)) {
     $eoi_number = mysqli_insert_id($conn);
-    echo "<html><body><h1>Submission Successful</h1>";
-    echo "<p>Your Expression of Interest has been submitted.</p>";
+    $current_time = new DateTime('now', new DateTimeZone('Australia/Melbourne'));
+    $formatted_time = $current_time->format('g:i A T, l, F j, Y'); // e.g., 11:30 PM AEST, Thursday, May 22, 2025
+    echo "<h1>Submission Successful</h1>";
+    echo "<p>Your Expression of Interest has been submitted at $formatted_time.</p>";
     echo "<p><strong>EOI Number:</strong> $eoi_number</p>";
-    echo "<a href='apply.php'>Submit another EOI</a></body></html>";
+    echo "<a href='apply.php'>Submit another EOI</a>";
 } else {
-    echo "<html><body><h1>Error</h1><p>Failed to submit EOI: " . mysqli_error($conn) . "</p>";
-    echo "<a href='apply.php'>Back to form</a></body></html>";
+    echo "<h1>Error</h1><p>Failed to submit EOI: " . mysqli_error($conn) . "</p>";
+    echo "<a href='apply.php'>Back to form</a>";
 }
 
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
+include 'footer.inc';
 ?>
-<?php include 'header.inc'; ?>
-<?php include 'menu.inc'; ?>
-<?php include 'footer.inc'; ?>
