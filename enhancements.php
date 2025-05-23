@@ -76,6 +76,36 @@ $current_date_time = $date_time->format('g:i A T, l, F j, Y'); // e.g., 9:07 AM 
             <p>CSS enhancements were added to give hover feedback on the Apply page's Submit and Reset buttons, improving user experience.</p>
         </article>
     </section>
+
+    <!-- === Enhancements by Nguyen Gia Bao Pham === -->
+    <section class="enhancements-list">
+        <h2>Enhancements by Nguyen Gia Bao Pham</h2>
+
+        <article class="enhancement-item">
+            <h3>1. Provide the Manager with the Ability to Sort EOI Records</h3>
+            <p>Managers can now sort EOI records on <code>manage.php</code> by fields like <code>EOInumber</code>, <code>job_reference</code>, <code>first_name</code>, etc. A dropdown menu and dynamic SQL <code>ORDER BY</code> queries are used, with the sorting field passed via a <code>GET</code> parameter.</p>
+        </article>
+
+        <article class="enhancement-item">
+            <h3>2. Manager Registration Page with Server-Side Validation</h3>
+            <p>The <code>register_manager.php</code> page allows manager sign-up with checks for unique username, email format, and strong passwords. Passwords are hashed using <code>password_hash()</code>.</p>
+        </article>
+
+        <article class="enhancement-item">
+            <h3>3. Authentication Protection for <code>manage.php</code></h3>
+            <p>Access to <code>manage.php</code> is restricted by session-based login. User credentials are verified using <code>password_verify()</code> against hashed database entries, redirecting unauthenticated users to <code>login.php</code>.</p>
+        </article>
+
+        <article class="enhancement-item">
+            <h3>4. Lockout After 3 Invalid Login Attempts</h3>
+            <p>Invalid login attempts are tracked. After 3 failed tries in 15 minutes, the account is locked, showing a countdown until reactivation. Lockout logic uses the <code>invalid_attempts</code> and <code>last_attempt</code> columns in the database.</p>
+        </article>
+
+        <article class="enhancement-item">
+            <h3>5. Provide the database with EOI table</h3>
+            <p>Work with the PHPMyAdmin for create a table</p>
+        </article>
+    </section>
 </main>
 
 <?php include("footer.inc"); ?>
