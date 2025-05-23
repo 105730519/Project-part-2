@@ -739,7 +739,7 @@ dd {
     }
 }
 
-/* Author: Nguyen Gia Bao Pham
+/* Author: Nguyen Gia Bao Pham, Tran Minh Thien Phan
 purpose: CSS for login page */ 
 
 
@@ -818,4 +818,30 @@ form a {
 
 form a:hover {
     background-color: #e9ecef;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.welcome-subtitle {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.submit-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.submit-button:hover {
+    background-color: #007acc;
+    color: white !important; 
+    transition: background-color 0.3s ease;
 }

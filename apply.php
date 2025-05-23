@@ -84,7 +84,7 @@ include("menu.inc");
 
         <div id="Other">
             <p><label for="other_skills">Other Skills</label></p>
-            <textarea name="other_skills" id="other_skills" rows="4" cols="50">Write description of your skills here...</textarea>
+            <textarea name="other_skills" id="other_skills" rows="4" cols="50" placeholder="Descriptions of your skills here..."></textarea>
         </div>
 
         <div class="Degree">

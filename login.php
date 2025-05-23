@@ -3,11 +3,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+session_start();
+
 include 'header.inc';
 include 'menu.inc';
 require 'settings.php';
-
-session_start();
 
 // Database connection
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
@@ -27,8 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = sanitize($_POST['username'] ?? '', $conn);
     $password = $_POST['password'] ?? '';
 
-    // Check if user exists
-    $query = "SELECT id, password, failed_attempts, lockout_until FROM managers WHERE username = ?";
+    // Check if user exists in 'managers' table
+    $query = "SELECT id, username, password, failed_attempts, lockout_until FROM managers WHERE username = ?";
     $stmt = mysqli_prepare($conn, $query);
     if (!$stmt) {
         die("<h1>Error</h1><p>Query preparation failed: " . mysqli_error($conn) . "</p><a href='login.php'>Back to login</a>");
@@ -75,10 +75,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Set session variables
             $_SESSION['manager_id'] = $user['id'];
-            $_SESSION['manager_username'] = $username;
+            $_SESSION['manager_username'] = $user['username'];
 
-            // Redirect to manage.php
+            // Redirect all managers to manage.php
             header('Location: manage.php');
+            mysqli_close($conn);
             exit();
         } else {
             // Failed login: increment failed attempts
@@ -93,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_close($stmt);
 
-                echo "<h1>Account Locked</h1><p>Too many failed login attempts. Your account is locked for 15 minutes.</p>";
+                echo "<h1>Account Locked</h1><p>Your account is locked for 15 minutes due to too many failed login attempts.</p>";
                 echo "<a href='login.php'>Back to login</a>";
             } else {
                 // Update failed attempts
@@ -103,16 +104,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 mysqli_stmt_execute($stmt);
                 mysqli_stmt_close($stmt);
 
-                echo "<h1>Login Failed</h1><p>Incorrect password. Attempt " . $failed_attempts . " of 3.</p>";
-                echo "<a href='login.php'>Try again</a>";
+                $_SESSION['error'] = "Incorrect password. Attempt $failed_attempts of 3.";
+                header('Location: login.php');
             }
             mysqli_close($conn);
             include 'footer.inc';
             exit();
         }
     } else {
-        echo "<h1>Login Failed</h1><p>Username not found.</p>";
-        echo "<a href='login.php'>Try again</a>";
+        $_SESSION['error'] = "Username not found.";
+        header('Location: login.php');
         mysqli_close($conn);
         include 'footer.inc';
         exit();
@@ -125,6 +126,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="apply-title">
             <h1>Manager Login</h1>
             <p>Fields marked with an <span class="required">*</span> are required</p>
+            <?php if (isset($_SESSION['error'])): ?>
+                <p class="error"><?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?></p>
+            <?php endif; ?>
         </div>
 
         <div class="Username">
@@ -144,4 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </form>
 </main>
 
-<?php include 'footer.inc'; ?>
+<?php
+mysqli_close($conn);
+include 'footer.inc';
+?>

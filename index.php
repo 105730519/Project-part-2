@@ -13,12 +13,12 @@ if (!$conn) {
 
 <main>
     <h1>Welcome to Nhom Nhom</h1>
-    <p>Your trusted team for tech innovation and career opportunities.</p>
+    <p style="text-align: center; font-size: 18px; font-weight: bold;">Your trusted team for tech innovation and career opportunities.</p>
 </main>
 
 <div id="biggest-image">
     <div class="wrapper">
-        <h1><strong>Welcome to Nhom Nhom</strong></h1>
+        <h1><strong>Nhom Nhom</strong></h1>
         <h2>Your Career Journey Starts Here</h2>
         <a href="jobs.php" class="btn">View more</a>
     </div>

@@ -199,7 +199,7 @@ if (empty($results)) {
     }
     ?>
 
-    <p><a href="logout.php">Logout</a></p>
+    <p class="form-footer"><a href="logout.php" class="submit-button">Logout</a></p>
 </main>
 
 <?php
