@@ -8,7 +8,7 @@
                 <li><a href="about.php">Team</a></li>
                 <li><a href="https://nhomnhom.atlassian.net/jira/software/projects/SCRUM/summary">Jira</a></li>
                 <li><a href="jobs.php">Careers</a></li>
-                <li><a href="https://github.com/baothanhthienn/Project-Part-1">Github</a></li>
+                <li><a href="https://github.com/105730519/Project-part-2.git">Github</a></li>
             </ul>
             <ul>
                 <li><h5>Connect</h5></li>
@@ -21,7 +21,6 @@
                 <li><h5>Help</h5></li>
                 <li><a href="#" title="Need support?">Support</a></li>
                 <li><a href="#" title="Contact our team">Contact</a></li>
-                <li><a href="enhancements.php" title="See added features">Enhancements</a></li>
             </ul>
         </div>
     </div>
