@@ -1,5 +1,9 @@
 <header class="company-name">
-    <h1>Nhom Nhom<span class="color">.</span></h1>
+    <<h1>
+  <a href="index.php" class="logo-link" title="Back to Home">
+    Nhom Nhom<span class="color">.</span>
+</h1>
+
     <nav>
         <ul>
             <li><a href="index.php" title="Go to homepage">Home</a></li>

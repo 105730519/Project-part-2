@@ -738,6 +738,17 @@ dd {
         width: 150px;
     }
 }
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+  }
+  
+  .logo-link:hover {
+    text-decoration: underline;
+    color:none; 
+  }
+  
 
 /* Author: Nguyen Gia Bao Pham, Tran Minh Thien Phan
 purpose: CSS for login page */ 
