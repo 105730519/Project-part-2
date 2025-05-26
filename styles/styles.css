@@ -195,7 +195,7 @@ body.enhancements main section.enhancements-list article.enhancement-item:hover 
     /* Hero */
     #biggest-image {
         height: 500px;
-        background: #e0e0e0 url('https://baothanhthienn.github.io/Project-Part-1/images/minimal-city.jpg') no-repeat center;
+        background: #e0e0e0 url('https://github.com/105730519/Project-part-2/blob/96099e44dd6dfc351021488adbe273b387203bee/images/minimal-city.jpg') no-repeat center;
         background-size: cover;
         display: flex;
         justify-content: center;
@@ -252,15 +252,15 @@ body.enhancements main section.enhancements-list article.enhancement-item:hover 
     }
 
     .innovative-tech {
-        background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-1.png');
+        background-image: url('https://github.com/105730519/Project-part-2/blob/96099e44dd6dfc351021488adbe273b387203bee/images/features-icon-1.png');
     }
 
     .global-reach {
-        background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-2.png');
+        background-image: url('https://github.com/105730519/Project-part-2/blob/96099e44dd6dfc351021488adbe273b387203bee/images/features-icon-2.png');
     }
 
     .flexibility {
-        background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-3.png');
+        background-image: url('https://github.com/105730519/Project-part-2/blob/96099e44dd6dfc351021488adbe273b387203bee/images/features-icon-3.png');
     }
 
     /* Main Content */
