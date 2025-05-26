@@ -9,4 +9,3 @@
     <title>Nhom Nhom Careers</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body class="<?php echo isset($body_class) ? htmlspecialchars($body_class) : 'index'; ?>">

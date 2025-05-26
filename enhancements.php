@@ -1,15 +1,9 @@
+
 <?php
 $body_class = "enhancements"; // Set the body class for this page
 include("header.inc");
 include("menu.inc");
 require("settings.php");
-
-// Database connection (optional for future use)
-$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
-if (!$conn) {
-    echo "<p>Database connection failed: " . mysqli_connect_error() . "</p>";
-    exit();
-}
 
 // Get current time in Melbourne
 $date_time = new DateTime('now', new DateTimeZone('Australia/Melbourne'));
@@ -24,6 +18,7 @@ $current_date_time = $date_time->format('g:i A T, l, F j, Y');
     </section>
 
     <?php
+    //Using php to improve the functionality of enhancement page by Tran Minh Thien Phan
     $team_enhancements = [
         "Tran Minh Thien Phan" => [
             "Provide the Manager with the Ability to Sort EOI Records" => "Managers can now sort EOI records on <code>manage.php</code> by fields like <code>EOInumber</code>, <code>job_reference</code>, <code>first_name</code>, etc. A dropdown menu and dynamic SQL <code>ORDER BY</code> queries are used, with the sorting field passed via a <code>GET</code> parameter.",

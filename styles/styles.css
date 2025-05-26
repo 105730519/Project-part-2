@@ -1,183 +1,173 @@
-/* Author: Tran Minh Thien Phan, Nguyen Gia Bao Pham 
-   Purpose: CSS for index, jobs, apply, about, login, and enhancements pages
-*/
+    /* Author: Tran Minh Thien Phan, Nguyen Gia Bao Pham 
+    Purpose: CSS for index, jobs, apply, about, login, and enhancements pages
+    */
 
-@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-body {
-    background: #fff;
-    color: #666;
-    font: 15px/1.5 "Istok Web", Arial, sans-serif;
+    body {
+        background: #fff;
+        color: #666;
+        font: 15px/1.5 "Istok Web", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    p {
+        line-height: 1.6;
+        margin-bottom: 1.5em;
+    }
+
+    h1 {
+        font-family: 'Crete Round', 'Georgia', serif, sans-serif;
+        font-size: 42px;
+        color: #333;
+        margin-bottom: 15px;
+        margin: 0;
+        line-height: 1;
+    }
+
+    h2 {
+        font-family: 'Crete Round', 'Georgia', serif, sans-serif;
+        font-size: 32px;
+        font-weight: 300;
+        color: #333;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    h3,
+    h4,
+    h5 {
+        color: #333;
+        margin-bottom: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    h3 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    h4 {
+        font-size: 22px;
+    }
+
+    h5 {
+        font-size: 14px;
+    }
+
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #007acc;
+    }
+
+    code {
+        background-color: #f4f4f4;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-family: monospace;
+        color: #007bff;
+    }
+
+    .company-name {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    /* Header stuff */
+    header.company-name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 25px 15px;
+        border-bottom: 1px solid #ddd;
+        max-width: 960px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    header.company-name h1 .color {
+        color: #007acc;
+    }
+
+    header.company-name nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+    }
+
+    header.company-name nav ul li a {
+        font-weight: 600;
+        font-size: 14px;
+        text-transform: uppercase;
+        padding: 14px 25px;
+        min-width: 44px;
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        text-decoration: none;
+        line-height: 1;
+    }
+
+    header.company-name nav ul li a:hover {
+        color: #007acc;
+    }
+
+    .logo-link {
+        text-decoration: none;
+        color: inherit;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .logo-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Base styles for enhancements.php */
+body.enhancements {
+    background-color: #fff;
+    color: #333;
+    font-family: "Istok Web", Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-p {
-    line-height: 1.6;
-    margin-bottom: 1.5em;
-}
-
-h1 {
-    font-family: 'Crete Round', 'Georgia', serif, sans-serif;
-    font-size: 42px;
-    color: #333;
-    margin-bottom: 15px;
-    margin: 0;
-    line-height: 1;
-}
-
-h2 {
-    font-family: 'Crete Round', 'Georgia', serif, sans-serif;
-    font-size: 32px;
-    font-weight: 300;
-    color: #333;
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-h3,
-h4,
-h5 {
-    color: #333;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-h3 {
-    font-size: 28px;
-    text-align: center;
-}
-
-h4 {
-    font-size: 22px;
-}
-
-h5 {
-    font-size: 14px;
-}
-
-a {
-    color: #333;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #007acc;
-}
-
-code {
-    background-color: #f4f4f4;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: monospace;
-    color: #007bff;
-}
-
-.company-name {
+body.enhancements main {
     max-width: 960px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
-/* Header stuff */
-header.company-name {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 25px 15px;
-    border-bottom: 1px solid #ddd;
-    max-width: 960px;
-    margin: 0 auto;
-    box-sizing: border-box;
-}
-
-header.company-name h1 .color {
-    color: #007acc;
-}
-
-header.company-name nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
-}
-
-header.company-name nav ul li a {
-    font-weight: 600;
-    font-size: 14px;
-    text-transform: uppercase;
-    padding: 14px 25px;
-    min-width: 44px;
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: #333;
-    text-decoration: none;
-    line-height: 1;
-}
-
-header.company-name nav ul li a:hover {
-    color: #007acc;
-}
-
-.logo-link {
-    text-decoration: none;
-    color: inherit;
-    display: inline-flex;
-    align-items: center;
-}
-
-.logo-link:hover {
-    text-decoration: underline;
-}
-
-/* Enhancements Page */
-main section.enhancements-header {
-    background: #f9f9f9 !important;
-    padding: 40px 15px !important;
+body.enhancements main section.enhancements-header {
+    background: #f9f9f9;
+    padding: 40px 15px;
     text-align: center;
     border-bottom: 1px solid #ddd;
     max-width: 960px;
     margin: 0 auto;
 }
 
-main section.enhancements-header h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-}
-
-main section.enhancements-header p.timestamp {
-    font-size: 14px;
-    color: #888;
-    margin-bottom: 10px;
-    font-style: italic;
-}
-
-main section.enhancements-header p.description {
-    font-size: 16px;
-    color: #666;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-main section.enhancements-list {
+body.enhancements main section.enhancements-list {
     max-width: 960px;
     margin: 40px auto;
     padding: 0 15px;
 }
 
-main section.enhancements-list h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-main section.enhancements-list article.enhancement-item {
-    background: #fff !important;
+body.enhancements main section.enhancements-list article.enhancement-item {
+    background: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 20px;
@@ -186,812 +176,812 @@ main section.enhancements-list article.enhancement-item {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-main section.enhancements-list article.enhancement-item:hover {
+body.enhancements main section.enhancements-list article.enhancement-item:hover {
     transform: scale(1.02);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-main section.enhancements-list article.enhancement-item h3 {
-    font-size: 24px;
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-main section.enhancements-list article.enhancement-item p {
-    font-size: 16px;
-    line-height: 1.8;
-}
-
-/* Hero */
-#biggest-image {
-    height: 500px;
-    background: #e0e0e0 url('https://baothanhthienn.github.io/Project-Part-1/images/minimal-city.jpg') no-repeat center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
-
-#biggest-image h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-#biggest-image h2 {
-    font-size: 1.8em;
-    margin: 0;
-}
-
-.btn {
-    display: inline-block;
-    background: #333;
-    color: #fff;
-    padding: 12px 25px;
-    border-radius: 4px;
-    margin-top: 20px;
-    transition: background 0.3s ease;
-}
-
-.btn:hover {
-    background: #007acc;
-}
-
-/* Features */
-#features {
-    padding: 60px 0;
-}
-
-#features ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    list-style: none;
-    padding: 0;
-}
-
-#features ul li {
-    flex: 1 1 30%;
-    margin-bottom: 40px;
-    text-align: center;
-    padding-top: 130px;
-    background-size: auto 100px;
-    background-repeat: no-repeat;
-    background-position: top center;
-}
-
-.innovative-tech {
-    background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-1.png');
-}
-
-.global-reach {
-    background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-2.png');
-}
-
-.flexibility {
-    background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-3.png');
-}
-
-/* Main Content */
-#primary-content,
-#secondary-content,
-#cta {
-    padding: 60px 0;
-    background: #f9f9f9;
-    text-align: center;
-}
-
-#primary-content article img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
-}
-
-#secondary-content .wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-#secondary-content article {
-    flex: 1 1 45%;
-    min-height: 250px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.overlay {
-    background: rgba(255, 255, 255, 0.92);
-    padding: 20px;
-    position: relative;
-    top: 0;
-    height: 100%;
-}
-
-/* Footer */
-footer {
-    background: #f0f0f0;
-    padding: 30px 0;
-    font-size: 14px;
-    text-align: center;
-    color: #666;
-    border-top: 1px solid #ddd;
-    position: relative;
-    z-index: 3;
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 0;
-}
-
-footer .wrapper {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-#footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-#footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-#footer-links li {
-    margin-bottom: 6px;
-}
-
-#footer-links a {
-    color: #333;
-}
-
-#footer-links a:hover {
-    color: #000;
-}
-
-/* Responsive design */
-@media (min-width: 320px) and (max-width: 480px) {
-    header.company-name {
-        padding: 15px 5%;
-    }
-
-    header.company-name nav ul {
-        gap: 10px;
-    }
-
-    header.company-name nav ul li a {
-        padding: 8px 12px;
-        font-size: 12px;
-    }
-
-    header.company-name h1 {
-        font-size: 32px;
-    }
-
-    main section.enhancements-header h1 {
-        font-size: 36px;
-    }
-
-    main section.enhancements-list h2 {
-        font-size: 28px;
-    }
-
-    main section.enhancements-list article.enhancement-item h3 {
-        font-size: 20px;
-    }
-
-    main section.enhancements-list article.enhancement-item p {
-        font-size: 14px;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 640px) {
-    header.company-name {
-        padding: 15px 5%;
-    }
-
-    header.company-name nav ul {
-        gap: 12px;
-    }
-
-    header.company-name nav ul li a {
-        padding: 10px 15px;
-        font-size: 13px;
-    }
-
-    header.company-name h1 {
-        font-size: 36px;
-    }
-
-    main section.enhancements-header h1 {
-        font-size: 40px;
-    }
-
-    main section.enhancements-list h2 {
-        font-size: 30px;
-    }
-
-    main section.enhancements-list article.enhancement-item h3 {
-        font-size: 22px;
-    }
-
-    main section.enhancements-list article.enhancement-item p {
-        font-size: 15px;
-    }
-}
-
-@media (min-width: 641px) and (max-width: 1024px) {
-    header.company-name {
-        padding: 20px 5%;
-    }
-
-    header.company-name h1 {
-        font-size: 38px;
-    }
-
-    main section.enhancements-header h1 {
-        font-size: 44px;
-    }
-
-    main section.enhancements-list h2 {
-        font-size: 32px;
-    }
-
-    main section.enhancements-list article.enhancement-item h3 {
-        font-size: 24px;
-    }
-}
-
+/* Responsive design for enhancements.php */
 @media (max-width: 768px) {
-    #features ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #secondary-content article {
-        flex: 1 1 100%;
-    }
-
-    main section.enhancements-list {
+    body.enhancements main section.enhancements-list {
         padding: 0 10px;
     }
 
-    main section.enhancements-list article.enhancement-item {
+    body.enhancements main section.enhancements-list article.enhancement-item {
         padding: 15px;
     }
 }
 
-/* ================== JOB PAGE STYLES ================== */
-body.jobs {
-    background-color: white;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
-    font-family: "Istok Web", Arial, sans-serif;
+    /* Hero */
+    #biggest-image {
+        height: 500px;
+        background: #e0e0e0 url('https://baothanhthienn.github.io/Project-Part-1/images/minimal-city.jpg') no-repeat center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+
+    #biggest-image h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+
+    #biggest-image h2 {
+        font-size: 1.8em;
+        margin: 0;
+    }
+
+    .btn {
+        display: inline-block;
+        background: #333;
+        color: #fff;
+        padding: 12px 25px;
+        border-radius: 4px;
+        margin-top: 20px;
+        transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+        background: #007acc;
+    }
+
+    /* Features */
+    #features {
+        padding: 60px 0;
+    }
+
+    #features ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        list-style: none;
+        padding: 0;
+    }
+
+    #features ul li {
+        flex: 1 1 30%;
+        margin-bottom: 40px;
+        text-align: center;
+        padding-top: 130px;
+        background-size: auto 100px;
+        background-repeat: no-repeat;
+        background-position: top center;
+    }
+
+    .innovative-tech {
+        background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-1.png');
+    }
+
+    .global-reach {
+        background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-2.png');
+    }
+
+    .flexibility {
+        background-image: url('https://baothanhthienn.github.io/Project-Part-1/images/features-icon-3.png');
+    }
+
+    /* Main Content */
+    #primary-content,
+    #secondary-content,
+    #cta {
+        padding: 60px 0;
+        background: #f9f9f9;
+        text-align: center;
+    }
+
+    #primary-content article img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    #secondary-content .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    #secondary-content article {
+        flex: 1 1 45%;
+        min-height: 250px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .overlay {
+        background: rgba(255, 255, 255, 0.92);
+        padding: 20px;
+        position: relative;
+        top: 0;
+        height: 100%;
+    }
+
+    /* Footer */
+    footer {
+        background: #f0f0f0;
+        padding: 30px 0;
+        font-size: 14px;
+        text-align: center;
+        color: #666;
+        border-top: 1px solid #ddd;
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 0;
+    }
+
+    footer .wrapper {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    #footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+    }
+
+    #footer-links ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    #footer-links li {
+        margin-bottom: 6px;
+    }
+
+    #footer-links a {
+        color: #333;
+    }
+
+    #footer-links a:hover {
+        color: #000;
+    }
+
+    /* Responsive design */
+    @media (min-width: 320px) and (max-width: 480px) {
+        header.company-name {
+            padding: 15px 5%;
+        }
+
+        header.company-name nav ul {
+            gap: 10px;
+        }
+
+        header.company-name nav ul li a {
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+
+        header.company-name h1 {
+            font-size: 32px;
+        }
+
+        main section.enhancements-header h1 {
+            font-size: 36px;
+        }
+
+        main section.enhancements-list h2 {
+            font-size: 28px;
+        }
+
+        main section.enhancements-list article.enhancement-item h3 {
+            font-size: 20px;
+        }
+
+        main section.enhancements-list article.enhancement-item p {
+            font-size: 14px;
+        }
+    }
+
+    @media (min-width: 481px) and (max-width: 640px) {
+        header.company-name {
+            padding: 15px 5%;
+        }
+
+        header.company-name nav ul {
+            gap: 12px;
+        }
+
+        header.company-name nav ul li a {
+            padding: 10px 15px;
+            font-size: 13px;
+        }
+
+        header.company-name h1 {
+            font-size: 36px;
+        }
+
+        main section.enhancements-header h1 {
+            font-size: 40px;
+        }
+
+        main section.enhancements-list h2 {
+            font-size: 30px;
+        }
+
+        main section.enhancements-list article.enhancement-item h3 {
+            font-size: 22px;
+        }
+
+        main section.enhancements-list article.enhancement-item p {
+            font-size: 15px;
+        }
+    }
+
+    @media (min-width: 641px) and (max-width: 1024px) {
+        header.company-name {
+            padding: 20px 5%;
+        }
+
+        header.company-name h1 {
+            font-size: 38px;
+        }
+
+        main section.enhancements-header h1 {
+            font-size: 44px;
+        }
+
+        main section.enhancements-list h2 {
+            font-size: 32px;
+        }
+
+        main section.enhancements-list article.enhancement-item h3 {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 768px) {
+    body.enhancements main section.enhancements-list {
+        padding: 0 10px;
+    }
+
+    body.enhancements main section.enhancements-list article.enhancement-item {
+        padding: 15px;
+    }
+
+    body.jobs #features ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body.jobs #secondary-content article {
+        flex: 1 1 100%;
+    }
 }
 
-header.jobs-header {
+    /* ================== JOB PAGE STYLES ================== */
+    body.jobs {
+        background-color: white;
+        color: #333;
+        line-height: 1.6;
+        padding: 20px;
+        font-family: "Istok Web", Arial, sans-serif;
+    }
+
+    body.jobs header.jobs-header {
     background-color: #ffffff;
     padding: 20px 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     height: 120px;
-}
+    }
 
-header.jobs-header h1 {
-    float: left;
-    text-align: center;
-    color: black;
-    padding: 10px;
-    font-size: 55px;
-    margin-top: 32px;
-}
+    header.jobs-header h1 {
+        float: left;
+        text-align: center;
+        color: black;
+        padding: 10px;
+        font-size: 55px;
+        margin-top: 32px;
+    }
 
-header.jobs-header nav {
-    float: right;
-}
+    header.jobs-header nav {
+        float: right;
+    }
 
-.h2 {
-    margin-top: 30px;
-    text-align: center;
-    font-size: 40px;
-    box-sizing: border-box;
-}
+    .h2 {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 40px;
+        box-sizing: border-box;
+    }
 
-nav.jobs-nav ul {
-    list-style: none;
-    text-align: left;
-    padding: 50px;
-}
+    nav.jobs-nav ul {
+        list-style: none;
+        text-align: left;
+        padding: 50px;
+    }
 
-nav.jobs-nav ul li {
-    display: inline;
-    margin: 0 10px;
-    float: right;
-}
+    nav.jobs-nav ul li {
+        display: inline;
+        margin: 0 10px;
+        float: right;
+    }
 
-nav.jobs-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+    nav.jobs-nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
 
-nav.jobs-nav ul li a:hover {
-    color: #007bff;
-}
+    nav.jobs-nav ul li a:hover {
+        color: #007bff;
+    }
 
-/* Styling the main content */
-main {
+    /* Styling the main content */
+    body.jobs main {
     max-width: 1200px;
     margin: 0 auto;
     padding-top: 40px;
-}
-
-.jobs-h2 {
-    text-align: center;
-    font-size: 28px;
-    color: black;
-    margin-bottom: 40px;
-}
-
-.location {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-}
-
-.location a {
-    display: inline-block;
-    margin-bottom: 10px;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.location a:hover {
-    text-decoration: underline;
-}
-
-.map-embed {
-    width: 100%;
-    height: 300px;
-    border: 0;
-    border-radius: 6px;
-}
-
-/* Styling the job description parts */
-div.div-current-openings {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 30px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-div.div-current-openings h3 {
-    font-size: 24px;
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-div.div-current-openings p {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-div.div-current-openings h4 {
-    font-size: 20px;
-    color: black;
-    margin-top: 20px;
-    font-weight: bolder;
-}
-
-div.div-current-openings ul {
-    margin-left: 20px;
-    padding-left: 0;
-}
-
-div.div-current-openings ul li {
-    font-size: 16px;
-    margin-bottom: 10px;
-}
-
-div.div-current-openings ul li:before {
-    color: #007bff;
-    font-size: 18px;
-    margin-right: 8px;
-}
-
-.faq-section {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 30px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    max-width: 100%;
-}
-
-.faq-section h3 {
-    margin-top: 0;
-    font-size: 1.5em;
-    color: #333;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
-}
-
-.faq-section ul {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 15px;
-}
-
-.faq-section li {
-    margin-bottom: 15px;
-    line-height: 1.6;
-}
-
-.faq-section li strong {
-    display: block;
-    color: #000;
-    font-weight: bold;
-}
-
-/* ================== APPLY PAGE STYLES ================== */
-body.apply {
-    font-family: "Istok Web", Arial, sans-serif;
-    background-color: #f8f9fa;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-}
-
-form.form {
-    background: white;
-    background-attachment: fixed;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 100px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.apply-title {
-    font-weight: 500;
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-.apply-title h1 {
-    font-size: 34px;
-}
-
-.apply-title p {
-    font-size: 14px;
-    text-align: center;
-}
-
-.Gender {
-    border: none;
-}
-
-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="date"],
-input[type="tel"],
-select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    font-size: 14px;
-}
-
-input[type="radio"] {
-    margin-right: 5px;
-}
-
-.checkbox-group {
-    margin-bottom: 15px;
-}
-
-.checkbox-group label {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-#Other textarea {
-    font-family: "Istok Web", Arial, sans-serif;
-}
-
-.submit-button:hover {
-    background-color: #0056b3;
-}
-
-.required {
-    color: red;
-}
-
-input[type="submit"]:hover,
-input[type="reset"]:hover {
-    background-color: #007acc;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-/* ================== ABOUT PAGE STYLES ================== */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4b5;
-}
-
-h1, h2, h3 {
-    text-align: center;
-    margin-top: 30px;
-    color: #222;
-}
-
-table {
-    margin: 20px auto;
-    border-collapse: collapse;
-    width: 70%;
-}
-
-table caption {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-table th, table td {
-    border: 1px solid #333;
-    padding: 10px;
-    background-color: #e6f2ff;
-    text-align: center;
-}
-
-table th:hover, table td:hover {
-    background-color: #cce0ff;
-}
-
-ul.student-ids {
-    padding-left: 20px;
-}
-
-ul.student-ids ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.right-align {
-    text-align: right;
-}
-
-.profile {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.profile-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background-color: #fff;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: none;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.info {
-    flex: 1;
-    padding-right: 20px;
-}
-
-.photo {
-    flex-shrink: 0;
-}
-
-.photo img {
-    width: 200px;
-    border: 2px solid #333;
-    float: right;
-    border-radius: 5px;
-}
-
-.photo p {
-    text-align: center;
-    margin-top: 5px;
-    font-style: italic;
-}
-
-dl {
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-dt {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-dd {
-    margin-left: 20px;
-    margin-bottom: 10px;
-}
-
-.seng {
-    background-image: url('whitebg.jpg');
-    background-size: cover;
-    background-position: center;
-    color: rgba(8, 1, 1, 0.687);
-    padding: 200px 0;
-    text-align: center;
-    font-size: 5em;
-    margin: 0;
-}
-
-.profile-card:hover {
-    transform: scale(1.02);
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.photo img:hover {
-    border-color: #007acc;
-    transition: border-color 0.3s ease;
-}
-
-/* ================== LOGIN PAGE STYLES ================== */
-.Username, .Password, .ConfirmPassword {
-    margin: 20px 0;
-}
-
-.Username p, .Password p, .ConfirmPassword p {
-    margin: 5px 0;
-}
-
-.Username label, .Password label, .ConfirmPassword label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.Username input[type="text"],
-.Password input[type="password"],
-.ConfirmPassword input[type="password"] {
-    width: 100%;
-    max-width: 400px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    box-sizing: border-box;
-}
-
-.Username input[type="text"]::placeholder,
-.Password input[type="password"]::placeholder,
-.ConfirmPassword input[type="password"]::placeholder {
-    color: #999;
-}
-
-.Username input[type="text"]:focus,
-.Password input[type="password"]:focus,
-.ConfirmPassword input[type="password"]:focus {
-    border-color: #007bff;
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
-}
-
-.Password small {
-    color: #666;
-    font-size: 14px;
-}
-
-form {
-    margin: 20px 0;
-}
-
-form input[type="submit"] {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 4px;
-    background-color: #dc3545;
-    color: white;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-form input[type="submit"]:hover {
-    opacity: 0.9;
-}
-
-form a {
-    padding: 8px 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    text-decoration: none;
-    color: #007bff;
-    background-color: #f8f9fa;
-}
-
-form a:hover {
-    background-color: #e9ecef;
-}
-
-.error {
-    color: red;
-    font-weight: bold;
-}
-
-.welcome-subtitle {
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.submit-button {
-    padding: 8px 15px;
-    border: none;
-    border-radius: 4px;
-    background-color: #dc3545;
-    color: white;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-.submit-button:hover {
-    background-color: #007acc;
-    color: white !important;
-    transition: background-color 0.3s ease;
-}
-
-@media (max-width: 600px) {
-    .profile {
-        gap: 20px;
-        padding: 0 10px;
     }
 
-    .profile-card {
-        flex-direction: column;
+    .jobs-h2 {
+        text-align: center;
+        font-size: 28px;
+        color: black;
+        margin-bottom: 40px;
+    }
+
+    .location {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+    }
+
+    .location a {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    .location a:hover {
+        text-decoration: underline;
+    }
+
+    .map-embed {
+        width: 100%;
+        height: 300px;
+        border: 0;
+        border-radius: 6px;
+    }
+
+    /* Styling the job description parts */
+    div.div-current-openings {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 30px;
+        margin-bottom: 40px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    div.div-current-openings h3 {
+        font-size: 24px;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+    div.div-current-openings p {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    div.div-current-openings h4 {
+        font-size: 20px;
+        color: black;
+        margin-top: 20px;
+        font-weight: bolder;
+    }
+
+    div.div-current-openings ul {
+        margin-left: 20px;
+        padding-left: 0;
+    }
+
+    div.div-current-openings ul li {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    div.div-current-openings ul li:before {
+        color: #007bff;
+        font-size: 18px;
+        margin-right: 8px;
+    }
+
+    .faq-section {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-top: 30px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        max-width: 100%;
+    }
+
+    .faq-section h3 {
+        margin-top: 0;
+        font-size: 1.5em;
+        color: #333;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+    }
+
+    .faq-section ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 15px;
+    }
+
+    .faq-section li {
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+    .faq-section li strong {
+        display: block;
+        color: #000;
+        font-weight: bold;
+    }
+
+    /* ================== APPLY PAGE STYLES ================== */
+    body.apply {
+        font-family: "Istok Web", Arial, sans-serif;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
         align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    form.form {
+        background: white;
+        background-attachment: fixed;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 100px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .apply-title {
+        font-weight: 500;
+        margin-bottom: 24px;
         text-align: center;
     }
 
+    .apply-title h1 {
+        font-size: 34px;
+    }
+
+    .apply-title p {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .Gender {
+        border: none;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="tel"],
+    select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    .checkbox-group {
+        margin-bottom: 15px;
+    }
+
+    .checkbox-group label {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+    #Other textarea {
+        font-family: "Istok Web", Arial, sans-serif;
+    }
+
+    .submit-button:hover {
+        background-color: #0056b3;
+    }
+
+    .required {
+        color: red;
+    }
+
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+        background-color: #007acc;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* ================== ABOUT PAGE STYLES ================== */
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4b5;
+    }
+
+    h1, h2, h3 {
+        text-align: center;
+        margin-top: 30px;
+        color: #222;
+    }
+
+    table {
+        margin: 20px auto;
+        border-collapse: collapse;
+        width: 70%;
+    }
+
+    table caption {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    table th, table td {
+        border: 1px solid #333;
+        padding: 10px;
+        background-color: #e6f2ff;
+        text-align: center;
+    }
+
+    table th:hover, table td:hover {
+        background-color: #cce0ff;
+    }
+
+    ul.student-ids {
+        padding-left: 20px;
+    }
+
+    ul.student-ids ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .right-align {
+        text-align: right;
+    }
+
+    .profile {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .profile-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        background-color: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        max-width: none;
+        width: 100%;
+        margin: 0 auto;
+    }
+
     .info {
-        padding-right: 0;
+        flex: 1;
+        padding-right: 20px;
+    }
+
+    .photo {
+        flex-shrink: 0;
     }
 
     .photo img {
-        width: 150px;
+        width: 200px;
+        border: 2px solid #333;
+        float: right;
+        border-radius: 5px;
     }
-}
+
+    .photo p {
+        text-align: center;
+        margin-top: 5px;
+        font-style: italic;
+    }
+
+    dl {
+        background-color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    dt {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    dd {
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    .seng {
+        background-image: url('whitebg.jpg');
+        background-size: cover;
+        background-position: center;
+        color: rgba(8, 1, 1, 0.687);
+        padding: 200px 0;
+        text-align: center;
+        font-size: 5em;
+        margin: 0;
+    }
+
+    .profile-card:hover {
+        transform: scale(1.02);
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo img:hover {
+        border-color: #007acc;
+        transition: border-color 0.3s ease;
+    }
+
+    /* ================== LOGIN PAGE STYLES ================== */
+    .Username, .Password, .ConfirmPassword {
+        margin: 20px 0;
+    }
+
+    .Username p, .Password p, .ConfirmPassword p {
+        margin: 5px 0;
+    }
+
+    .Username label, .Password label, .ConfirmPassword label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .Username input[type="text"],
+    .Password input[type="password"],
+    .ConfirmPassword input[type="password"] {
+        width: 100%;
+        max-width: 400px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .Username input[type="text"]::placeholder,
+    .Password input[type="password"]::placeholder,
+    .ConfirmPassword input[type="password"]::placeholder {
+        color: #999;
+    }
+
+    .Username input[type="text"]:focus,
+    .Password input[type="password"]:focus,
+    .ConfirmPassword input[type="password"]:focus {
+        border-color: #007bff;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
+
+    .Password small {
+        color: #666;
+        font-size: 14px;
+    }
+
+    form {
+        margin: 20px 0;
+    }
+
+    form input[type="submit"] {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 4px;
+        background-color: #dc3545;
+        color: white;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    form input[type="submit"]:hover {
+        opacity: 0.9;
+    }
+
+    form a {
+        padding: 8px 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #007bff;
+        background-color: #f8f9fa;
+    }
+
+    form a:hover {
+        background-color: #e9ecef;
+    }
+
+    .error {
+        color: red;
+        font-weight: bold;
+    }
+
+    .welcome-subtitle {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .submit-button {
+        padding: 8px 15px;
+        border: none;
+        border-radius: 4px;
+        background-color: #dc3545;
+        color: white;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    .submit-button:hover {
+        background-color: #007acc;
+        color: white !important;
+        transition: background-color 0.3s ease;
+    }
+
+    @media (max-width: 600px) {
+        .profile {
+            gap: 20px;
+            padding: 0 10px;
+        }
+
+        .profile-card {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .info {
+            padding-right: 0;
+        }
+
+        .photo img {
+            width: 150px;
+        }
+    }
